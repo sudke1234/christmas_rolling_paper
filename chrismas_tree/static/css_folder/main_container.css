@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Pacifico-Regular';
+    src: url(../Pacifico-Regular.ttf);
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+}
+#head_line{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+#head_line p{
+    margin: 0;
+    font-family: 'Pacifico-Regular';
+    color: aliceblue;
+    font-size: 5rem;
+    
+}
+#mainpage{
+    display: flex;
+    justify-content: center;
+}
+#mainpage img{
+    width: 100vh;
+    height: 100vh;
+}
