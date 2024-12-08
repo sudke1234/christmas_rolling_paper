@@ -7,12 +7,12 @@ Decorations = (
     (1, 'decoration_2'),
     (2, 'decoration_3'),
 )
-
-class Decoration_Choose(models.Model):
-    Decoration = models.CharField(  choices = Decorations , max_length = 1)
-
 class Post(models.Model):
-    title = models.CharField(max_length = 100)
-    content = models.TextField(max_length = 600)
-    created = models.DateTimeField(auto_now_add = True)
-    updated = models.DateTimeField(auto_now = True)
+    title = models.CharField(max_length=100)
+    content = models.TextField(max_length=600)
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    decoration = models.IntegerField(default=0)  # 'decoration' 필드 추가
+
+    def __str__(self):
+        return self.title
