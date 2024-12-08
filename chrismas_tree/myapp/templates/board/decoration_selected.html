@@ -4,38 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css_folder/decoration_container.css">
-    
 </head>
 <body>
 
-    <div class="button-group">
-        <button onclick="selectDecoration('decoration_1')">장식 1</button>
-        <button onclick="selectDecoration('decoration_2')">장식 2</button>
-        <button onclick="selectDecoration('decoration_3')">장식 3</button>
-    </div>
-
-<form class="container" method="post" onsubmit="submitForm(event)">
-    {% csrf_token %}
+<div class="container">
     <h1>장식 선택 페이지</h1>
-    
-    <input type="hidden" id="decorations" name="decoration">
-    
-    <div class="form-group">
-        <label for="title">제목</label>
-        <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
+     <div class="button-group">
+        <button type="button" onclick="document.getElementById('decoration').value='1'">장식 1</button>
+        <button type="button" onclick="document.getElementById('decoration').value='2'">장식 2</button>
+        <button type="button" onclick="document.getElementById('decoration').value='3'">장식 3</button>
     </div>
-    
-    <div class="form-group">
-        <label for="content">내용</label>
-        <textarea id="content" name="content" placeholder="내용을 입력하세요"></textarea>
+    <form id="postForm" method="POST" action="{% url 'decoration_selected' %}">
+
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="title">제목</label>
+            <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
+        </div>
+
+        <div class="form-group">
+            <label for="content">내용</label>
+            <textarea id="content" name="content" placeholder="내용을 입력하세요"></textarea>
+        </div>
+
+        <input type="hidden" id="decoration" name="decoration">
+        <!-- <button class="submit-btn" onclick="submitForm()">제출하기</button> -->
+        <input type="submit" value="제출하기">
+    </form>
+
+
+
+
+
     </div>
-    
-
-    <button class="submit-btn" onclick="submitForm()">제출하기</button>
-</form>
-
-
-<script src="/static/js_folder/deco.js"></script>
+    <script src="/static/js_folder/deco.js"></script>
 
 </body>
 </html>
